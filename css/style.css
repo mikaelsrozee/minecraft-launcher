@@ -42,3 +42,43 @@ main {
 #packs > *:hover {
     transform: scale(1.05);
 }
+
+#pack-info {
+    position: absolute;
+    top: 0;
+    left: 4em;
+    height: calc(90vh - 2em);
+    width: calc(100vw - 6em);
+    padding: 1em;
+    border-bottom: 0.1em solid #0097e6;
+}
+
+#pack-info h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+#info {
+    height: 20%;
+}
+
+#pack-info > h3 {
+    height: 5%;
+}
+
+#desc {
+    height: 75%;
+}
+
+#info > .flex-row > * {
+    padding-right: 1em;
+}
+
+#desc {
+    text-align: justify;
+    overflow-y: auto;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
