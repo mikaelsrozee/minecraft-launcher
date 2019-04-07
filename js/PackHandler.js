@@ -2,7 +2,21 @@ const path = require('path');
 const fs = require('fs');
 
 function displayPack(pathToPackJSON) {
-    const jsonFile = getJsonFile(pathToPackJSON);
+    const jsonFile = getJSONFile(pathToPackJSON);
+
+    if (event.target.className === "selected") {
+        document.getElementById("right-side").className = "hidden";
+        event.target.className = "";
+        return;
+    } else {
+        document.getElementById('packs').childNodes.forEach(function (icon) {
+            if (icon !== event.target) {
+                icon.className = "";
+            } else {
+                icon.className = "selected";
+            }
+        });
+    }
 
     if (document.getElementById("right-side").className === "hidden") {
         document.getElementById("right-side").className = "";
@@ -16,20 +30,20 @@ function displayPack(pathToPackJSON) {
 }
 
 function createPackIcon(pathToPackJSON) {
-    const jsonFile = getJsonFile(pathToPackJSON);
+    const jsonFile = getJSONFile(pathToPackJSON);
     if ('content' in document.createElement('template')) {
         const template = document.getElementById("template-pack-icon");
         let templateClone = document.importNode(template.content, true);
 
         templateClone.children[0].setAttribute("src", jsonFile['pack_icon']);
-        templateClone.children[0].addEventListener('click', () => displayPack(pathToPackJSON));
+        templateClone.children[0].addEventListener('click', (event) => displayPack(pathToPackJSON));
 
         let packs = document.getElementById("packs");
         packs.append(templateClone);
     }
 }
 
-function getJsonFile(pathToPackJSON) {
+function getJSONFile(pathToPackJSON) {
     let request = new XMLHttpRequest();
     request.open("GET", path.join(__dirname, pathToPackJSON), false);
     request.send(null);

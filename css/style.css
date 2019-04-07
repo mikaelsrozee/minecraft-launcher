@@ -4,6 +4,24 @@
     font-family: sans-serif;
 }
 
+@keyframes toSquare {
+    from {
+        border-radius: 4em;
+    }
+    to {
+        border-radius: 5px;
+    }
+}
+
+@keyframes toCircle {
+    from {
+        border-radius: 5px;
+    }
+    to {
+        border-radius: 4em;
+    }
+}
+
 body {
     display: flex;
 }
@@ -37,12 +55,20 @@ main {
     min-height: 3em;
     max-width: 3em;
     max-height: 3em;
-    border-radius: 5px;
+    border-radius: 4em;
     box-shadow: rgba(0,0,0,.2) 2px 2px 2px;
 }
 
-#packs > *:hover {
-    transform: scale(1.05);
+#packs > *:not(.selected):not:hover {
+    animation: toCircle forwards 0.1s;
+}
+
+#packs > *:not(.selected):hover {
+    animation: toSquare forwards 0.1s;
+}
+
+#packs > *.selected {
+    border-radius: 5px;
 }
 
 #right-side {
