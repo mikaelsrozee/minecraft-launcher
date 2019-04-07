@@ -59,7 +59,7 @@ main {
     box-shadow: rgba(0,0,0,.2) 2px 2px 2px;
 }
 
-#packs > *:not(.selected):not:hover {
+#packs > *:not(.selected):not(:hover) {
     animation: toCircle forwards 0.1s;
 }
 
