@@ -9,6 +9,7 @@ body {
 }
 
 main {
+    display: flex;
     background: #00a8ff;
     height: 100vh;
     width: 100vw;
@@ -43,30 +44,23 @@ main {
     transform: scale(1.05);
 }
 
+#right-side {
+    width: calc(100vw - 4em);
+}
+
 #pack-info {
-    position: absolute;
-    top: 0;
-    left: 4em;
-    height: calc(90vh - 2em);
-    width: calc(100vw - 6em);
+    height: calc(100% - 6.1em);
     padding: 1em;
     border-bottom: 0.1em solid #0097e6;
 }
 
+#launch-bar {
+    height: 3em;
+    padding: 0.5em;
+}
+
 #pack-info h2, h3, h4, h5, h6 {
     color: white;
-}
-
-#info {
-    height: 20%;
-}
-
-#pack-info > h3 {
-    height: 5%;
-}
-
-#desc {
-    height: 75%;
 }
 
 #info > .flex-row > * {
@@ -74,7 +68,7 @@ main {
 }
 
 #desc {
-    text-align: justify;
+    height: 75%;
     overflow-y: auto;
 }
 
