@@ -1,0 +1,10 @@
+{
+  "pack_name": "My Test Pack",
+  "pack_author": "mikaelsrozee",
+  "pack_ver": "0.0.0",
+  "installed_ver": "0.0.0",
+  "mc_ver": "1.11.2",
+  "forge_ver": "13.20.1.2386",
+  "desc": "This is a really fantastic test pack. It is better than any other test packs.\n\nThis is a new paragraph.",
+  "pack_icon": "media/test-pack.png"
+}

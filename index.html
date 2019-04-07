@@ -9,66 +9,33 @@
 <body>
     <main>
         <div id="packs">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
-            <img src="media/pack-icon.png" alt="Pack icon">
+
         </div>
-        <div id="right-side">
+
+        <template id="template-pack-icon">
+            <img src="media/pack-icon.png" alt="Pack icon">
+        </template>
+
+        <div id="right-side" class="hidden">
             <div id="pack-info">
                 <div id="info">
-                    <h2><span id="pack_name">{pack_name}</span></h2>
-                    <h3>By <span id="pack_author">{pack_author}</span></h3>
+                    <h2><span id="pack_name"></span></h2>
+                    <h3>By <span id="pack_author"></span></h3>
                     <div class="flex-row">
-                        <p>Latest Pack Version: <span id="pack_ver">{pack_ver}</span></p>
-                        <p>(Installed: <span id="installed_ver">{installed_ver}</span>)</p>
+                        <p>Latest Pack Version: <span id="pack_ver"></span></p>
+                        <p>(Installed: <span id="installed_ver"></span>)</p>
                     </div>
                     <div class="flex-row">
-                        <p>MC Version: <span id="mc_ver">{mc_ver}</span></p>
-                        <p>Forge Version: <span id="forge_ver">{forge_ver}</span></p>
+                        <p>MC Version: <span id="mc_ver"></span></p>
+                        <p>Forge Version: <span id="forge_ver"></span></p>
                     </div>
                 </div>
                 <h4>Description</h4>
                 <div id="desc">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam delectus deleniti doloremque
-                        dolorum et explicabo harum id maiores neque non nulla pariatur quaerat, quis sint sit suscipit
-                        temporibus vitae. Sed?</p>
-                    <p>Ab accusantium aliquam aliquid asperiores assumenda beatae cumque dolor dolorem eum eveniet illum,
-                        iusto laborum minima minus pariatur quia quis ratione rerum sed vel? Eligendi expedita fugit quod
-                        similique voluptas!</p>
-                    <p>Ab accusantium aliquam architecto consectetur, dolorem doloribus ducimus ea eum eveniet fuga
-                        inventore minima obcaecati placeat provident qui quis quisquam quod reiciendis reprehenderit
-                        repudiandae saepe similique sint ut, vel veritatis.</p>
-                    <p>At laborum libero quos repudiandae rerum. Ab cum, placeat. Adipisci amet assumenda atque eaque fugit
-                        illo impedit inventore nam necessitatibus neque nostrum, odit optio reprehenderit similique soluta
-                        totam vitae voluptatem?</p>
-                    <p>Ab aliquid, aperiam asperiores aspernatur distinctio dolores eius eum excepturi fuga illo ipsam iste
-                        itaque laudantium maxime nam necessitatibus, obcaecati perspiciatis possimus provident quaerat
-                        temporibus vero, voluptatem. Distinctio, quos repudiandae!</p>
-                    <p>Distinctio, nulla, ratione? Accusantium aspernatur laudantium omnis! Ad animi at aut autem fugiat
-                        harum, illo itaque laborum magnam maxime minima modi nam numquam perspiciatis quisquam repudiandae
-                        sed, sequi temporibus voluptatem.</p>
-                    <p>Commodi, dolor, ea et iste magni minima minus molestiae natus necessitatibus omnis porro quam
-                        reiciendis repudiandae tempore veniam voluptates voluptatum! Accusantium culpa, et fuga iure magnam
-                        molestiae nesciunt quidem similique.</p>
-                    <p>Ad aspernatur at deserunt dolor dolore dolores doloribus ea esse expedita fugiat fugit id in
-                        inventore iusto minus nam natus numquam obcaecati officia provident, recusandae rem repellendus
-                        suscipit vel voluptatibus!</p>
-                    <p>Alias amet aperiam aut cum cumque deserunt dolor ea fuga illo iste praesentium qui repellat, unde.
-                        Beatae commodi deleniti illum in modi necessitatibus vel? Ad doloribus modi quas sit soluta!</p>
-                    <p>A animi aperiam aspernatur autem consectetur culpa dolorem ducimus est excepturi fuga harum hic in
-                        ipsa iste magni minima, nisi, officiis qui recusandae sapiente sint soluta suscipit tempora velit
-                        voluptates!</p>
+
                 </div>
             </div>
+            <script src="js/PackHandler.js"></script>
             <div id="launch-bar">
                 <button>Update</button>
             </div>
