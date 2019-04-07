@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+main {
+    background: #00a8ff;
+    height: 100vh;
+    width: 100vw;
+}
+
+#packs {
+    display: flex;
+    flex-direction: column;
+    background: #0097e6;
+    height: 100vh;
+    width: 4em;
+    border-radius: 5px;
+
+    overflow-y: scroll;
+}
+
+#packs::-webkit-scrollbar {
+    display: none;
+}
+
+#packs > * {
+    margin: 0.5em auto;
+    background: #f5f6fa;
+    min-width: 3em;
+    min-height: 3em;
+    max-width: 3em;
+    max-height: 3em;
+    border-radius: 5px;
+}
+
+#packs > *:hover {
+    transform: scale(1.05);
+}
