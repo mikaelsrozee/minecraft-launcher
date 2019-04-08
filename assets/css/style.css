@@ -22,8 +22,18 @@
     }
 }
 
+@keyframes fadeIn {
+    from {
+        background: #000;
+    }
+    to {
+
+    }
+}
+
 body {
     display: flex;
+    animation: fadeIn forwards 0.1s;
 }
 
 main {
@@ -31,6 +41,11 @@ main {
     background: #00a8ff;
     height: 100vh;
     width: 100vw;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 #packs {
@@ -128,6 +143,52 @@ main {
     margin: auto;
     font-size: 3em;
     line-height: 0;
+}
+
+#prompt {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background: rgba(0,0,0,.2);
+    max-width: 70vw;
+    max-height: 55vh;
+    border-radius: 5px;
+    padding: 5vh 5vw;
+    color: white;
+}
+
+#prompt > * {
+    margin: auto;
+}
+
+#prompt > label {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-top: 1em;
+}
+
+#prompt button {
+    padding: 0.5em;
+    font-size: 100%;
+    min-width: 10vw;
+
+    background: rgba(0,0,0,.2);
+    border: 0.1em dashed black;
+    color: white;
+}
+
+#prompt > label > input {
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    background: rgba(0,0,0,.2);
 }
 
 .flex-row {
