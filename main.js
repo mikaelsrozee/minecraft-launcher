@@ -1,33 +1,70 @@
+const path = require('path');
 const {app, BrowserWindow} = require('electron');
 
-function createWindow() {
+const debug = /--debug/.test(process.argv[2]);
 
-  let window = new BrowserWindow({
-    width: 800, height: 600,
-    minWidth: 540, minHeight: 500,
-    autoHideMenuBar: true
+if (process.mas) {
+  app.setName('Creo');
+}
+
+let mainWindow = null;
+
+function init() {
+  makeSingleInstance();
+
+  function createWindow() {
+    const windowOptions = {
+      width: 800, height: 600,
+      minWidth: 540, minHeight: 500,
+      autoHideMenuBar: true, title: app.getName()
+    };
+
+    mainWindow = new BrowserWindow(windowOptions);
+    mainWindow.loadURL(path.join('file://', __dirname, '/index.html'));
+
+    if (debug) {
+      mainWindow.webContents.openDevTools();
+      mainWindow.maximize();
+    }
+
+    mainWindow.on('closed', () => {
+      mainWindow = null;
+    });
+  }
+
+  app.on('ready', createWindow);
+
+  app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+      app.quit();
+    }
   });
 
-  window.loadFile('index.html');
-
-  window.webContents.openDevTools();
-
-  window.on('closed', () => {
-    window = null;
+  app.on('activate', () => {
+    if (window === null) {
+      createWindow();
+    }
   });
+
 
 }
 
-app.on('ready', createWindow);
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
+function makeSingleInstance() {
+  if (process.mas) {
+    return;
   }
-});
 
-app.on('activate', () => {
-  if (window === null) {
-    createWindow();
-  }
-});
+  app.requestSingleInstanceLock();
+
+  app.on('second-instance', () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) {
+        mainWindow.restore();
+      }
+
+      mainWindow.focus();
+    }
+  });
+}
+
+init();
