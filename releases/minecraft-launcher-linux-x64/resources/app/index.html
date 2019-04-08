@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Minecraft Launcher</title>
+</head>
+<body>
+    <main>
+        <div id="packs">
+
+        </div>
+
+        <template id="template-pack-icon">
+            <img src="media/pack-icon.png" alt="Pack icon">
+        </template>
+
+        <div id="right-side" class="hidden">
+            <div id="pack-info">
+                <div id="info">
+                    <h2><span id="pack_name"></span></h2>
+                    <h3>By <span id="pack_author"></span></h3>
+                    <div class="flex-row">
+                        <p>Latest Pack Version: <span id="pack_ver"></span></p>
+                        <p>(Installed: <span id="installed_ver"></span>)</p>
+                    </div>
+                    <div class="flex-row">
+                        <p>MC Version: <span id="mc_ver"></span></p>
+                        <p>Forge Version: <span id="forge_ver"></span></p>
+                    </div>
+                </div>
+                <h4>Description</h4>
+                <div id="desc">
+
+                </div>
+            </div>
+            <script src="js/PackHandler.js"></script>
+            <div id="launch-bar">
+                <button>Update</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

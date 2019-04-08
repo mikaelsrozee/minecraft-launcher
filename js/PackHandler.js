@@ -36,10 +36,10 @@ function createPackIcon(pathToPackJSON) {
         let templateClone = document.importNode(template.content, true);
 
         templateClone.children[0].setAttribute("src", jsonFile['pack_icon']);
-        templateClone.children[0].addEventListener('click', (event) => displayPack(pathToPackJSON));
+        templateClone.children[0].addEventListener('click', () => displayPack(pathToPackJSON));
 
         let packs = document.getElementById("packs");
-        packs.append(templateClone);
+        packs.insertBefore(templateClone, document.getElementById("add-pack"));
     }
 }
 

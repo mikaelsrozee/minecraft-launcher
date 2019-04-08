@@ -115,6 +115,19 @@ main {
     overflow-y: auto;
 }
 
+#add-pack {
+    display: flex;
+    background: rgba(0,0,0,.2);
+    border: 0.1em dashed black;
+    color: white;
+}
+
+#add-pack > * {
+    margin: auto;
+    font-size: 3em;
+    line-height: 0;
+}
+
 .flex-row {
     display: flex;
     flex-direction: row;
