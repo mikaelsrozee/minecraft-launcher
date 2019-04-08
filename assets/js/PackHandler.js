@@ -51,14 +51,14 @@ function getJSONFile(pathToPackJSON) {
 }
 
 function init() {
-    fs.readdir(path.join(__dirname, "/packs"), function (err, files) {
+    fs.readdir(path.join(__dirname, "/assets/packs"), function (err, files) {
         if (err) {
             console.error("Could not list the directory.", err);
             process.exit(1);
         }
 
         files.forEach(function (file, index) {
-            createPackIcon("/packs/" + file);
+            createPackIcon("/assets/packs/" + file);
         });
     });
 }
