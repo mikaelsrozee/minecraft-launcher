@@ -13,17 +13,6 @@
     }
 }
 
-@keyframes toCircle {
-    from {
-        border-radius: 5px;
-        transform: translate3d(0, 100%, 0);
-    }
-    to {
-        border-radius: 4em;
-        transform: none;
-    }
-}
-
 @keyframes fadeIn {
     from {
         transform: scale(1.5);
@@ -33,6 +22,11 @@
         transform: none;
         overflow: hidden;
     }
+}
+
+@keyframes glow {
+    from {}
+    to {border-color: white;}
 }
 
 body {
@@ -81,16 +75,12 @@ a {
     box-shadow: rgba(0,0,0,.2) 2px 2px 2px;
 }
 
-#packs > *:not(.selected):not(:hover) {
-    animation: toCircle forwards 0.1s;
+#packs > :not(#add-pack):not(.selected):hover {
+    animation: toSquare forwards 0.1s;
 }
 
 #packs > *:hover {
     cursor: pointer;
-}
-
-#packs > *:not(.selected):hover {
-    animation: toSquare forwards 0.1s;
 }
 
 #packs > *.selected {
@@ -145,6 +135,10 @@ a {
     color: white;
 }
 
+#add-pack:hover {
+    animation: glow forwards 0.5s;
+}
+
 #add-pack > * {
     margin: auto;
     font-size: 3em;
@@ -189,6 +183,10 @@ a {
     border: 0.1em dashed black;
     color: white;
     cursor: pointer;
+}
+
+#prompt button:hover {
+    animation: glow forwards 0.5s;
 }
 
 #prompt > label > input {
