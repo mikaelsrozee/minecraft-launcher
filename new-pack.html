@@ -10,10 +10,13 @@
     <main>
         <div id="prompt">
             <h1>Add New Pack</h1>
-            <label>
-                Upload pack JSON:
-                <input type="file" accept=".json" class="pack-file-input">
-            </label>
+            <div id="upload">
+                <h4>Upload pack JSON:</h4>
+                <div>
+                    <input type="file" accept=".json" class="pack-file-input">
+                    <span id="valid-icon"> </span>
+                </div>
+            </div>
             <div id="buttons">
                 <button>Add</button>
                 <a href="index.html"><button>Back</button></a>

@@ -161,7 +161,7 @@ a {
     margin: auto;
 }
 
-#prompt > label {
+#upload {
     display: flex;
     flex-direction: column;
     padding: 1em;
@@ -189,11 +189,15 @@ a {
     animation: glow forwards 0.5s;
 }
 
-#prompt > label > input {
+#upload {
     margin-top: 1em;
     padding: 1em;
     border-radius: 5px;
     background: rgba(0,0,0,.2);
+}
+
+#valid-icon {
+    font-weight: bolder;
 }
 
 .flex-row {

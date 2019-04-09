@@ -1,10 +1,11 @@
 const isJSON = require('is-valid-json');
 
 function init() {
-    // TODO: add event listener to new pack file input => isFileValid()
     document.querySelectorAll(".pack-file-input").forEach(input => {
        input.addEventListener("input", () => isUploadedFileValid(input.files[0]));
     });
+
+    setIndicatorState("hidden");
 
     // TODO: add event listener to add button => submitFile()
 }
@@ -13,6 +14,10 @@ module.exports = {
     isFileValid: function (file, dir) {
         const fs = require('fs');
         const path = require('path');
+
+        if (file === undefined) {
+            return;
+        }
 
         // check if file is a .json file
         if (path.extname(file) !== ".json") {
@@ -47,7 +52,34 @@ module.exports = {
 };
 
 function isUploadedFileValid(file) {
-    return module.exports.isFileValid(file.name, file.path.replace(file.name, ""));
+    if (file === undefined) {
+        setIndicatorState("hidden");
+        return;
+    }
+
+    let {result, msg} = module.exports.isFileValid(file.name, file.path.replace(file.name, ""));
+
+    if (result) {
+        setIndicatorState("valid");
+    } else {
+        setIndicatorState("invalid");
+    }
+
+    return {result, msg};
+}
+
+function setIndicatorState(state) {
+    let indicator = document.querySelector("#valid-icon");
+
+    if (state === "hidden") {
+        indicator.textContent = " ";
+    } else if (state === "valid") {
+        indicator.textContent = "✓";
+        indicator.setAttribute("style", "color: lime;");
+    } else if (state === "invalid") {
+        indicator.textContent = "✗";
+        indicator.setAttribute("style", "color: red;");
+    }
 }
 
 function submitFile() {
