@@ -177,7 +177,8 @@ a {
 #prompt button {
     padding: 0.5em;
     font-size: 100%;
-    min-width: 10vw;
+
+    width: 6em;
 
     background: rgba(0,0,0,.2);
     border: 0.1em dashed black;
@@ -185,7 +186,7 @@ a {
     cursor: pointer;
 }
 
-#prompt button:hover {
+#prompt button:hover:not(:disabled) {
     animation: glow forwards 0.5s;
 }
 
@@ -209,6 +210,8 @@ a {
     display: none;
 }
 
-.pack-file-submit:disabled {
-    display: none;
+#prompt button:disabled {
+    border-color: rgba(0,0,0,.2);
+    color: rgba(0,0,0,.2);
+    cursor: default;
 }
