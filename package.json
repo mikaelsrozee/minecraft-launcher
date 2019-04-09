@@ -18,5 +18,8 @@
   "homepage": "https://github.com/mikaelsrozee/minecraft-launcher#readme",
   "devDependencies": {
     "electron": "^4.1.4"
+  },
+  "dependencies": {
+    "is-valid-json": "^1.0.2"
   }
 }

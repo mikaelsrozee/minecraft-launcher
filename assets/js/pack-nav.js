@@ -25,14 +25,12 @@ function getAllValidPacks(dir) {
     let packs = [];
 
     fs.readdirSync(dir).forEach(file => {
-       if (path.extname(file) === '.json') {
-           const isFileValid = validate.isFileValid(file);
-           if (isFileValid.result) {
-               packs.push(JSON.parse(fs.readFileSync(path.join(dir, "/", file), 'utf8')));
-           } else {
-               console.error(isFileValid.msg);
-           }
-       }
+        const isFileValid = validate.isFileValid(file, dir);
+        if (isFileValid.result) {
+            packs.push(JSON.parse(fs.readFileSync(path.join(dir, "/", file), 'utf8')));
+        } else {
+            console.error(isFileValid.msg);
+        }
     });
 
     return packs;
