@@ -208,3 +208,7 @@ a {
 .hidden {
     display: none;
 }
+
+.pack-file-submit:disabled {
+    display: none;
+}
