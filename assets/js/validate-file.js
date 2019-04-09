@@ -2,12 +2,18 @@ const isJSON = require('is-valid-json');
 
 function init() {
     // TODO: add event listener to new pack file input => isFileValid()
+    document.querySelectorAll(".pack-file-input").forEach(input => {
+       input.addEventListener("input", () => isUploadedFileValid(input.files[0]));
+    });
 
     // TODO: add event listener to add button => submitFile()
 }
 
 module.exports = {
     isFileValid: function (file, dir) {
+        const fs = require('fs');
+        const path = require('path');
+
         // check if file is a .json file
         if (path.extname(file) !== ".json") {
             return {result: false, msg: "Invalid file type. Required: '.json', Found: '" + path.extname(file) + "'"};
@@ -39,6 +45,10 @@ module.exports = {
         return {result: true, msg: null};
     }
 };
+
+function isUploadedFileValid(file) {
+    return module.exports.isFileValid(file.name, file.path.replace(file.name, ""));
+}
 
 function submitFile() {
     // TODO: recheck validity
