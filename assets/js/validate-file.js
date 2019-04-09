@@ -91,19 +91,25 @@ function setIndicatorState(state) {
     } else if (state === "invalid") {
         indicator.textContent = "✗";
         indicator.setAttribute("style", "color: red;");
+        fileSubmit.setAttribute("disabled", "true");
     }
 }
 
 function submitFile(file) {
-    console.log(file);
+    const fs = require('fs');
+    const path = require('path');
 
-    // TODO: recheck validity
+    // recheck validity
+    if (!isUploadedFileValid(file).result) {
+        console.error("Uploaded file is not valid.");
+        return;
+    }
 
-    // TODO: if file is valid, pass it to the packs folder
-
-    // TODO: refresh pack list
-
-    // TODO: return to main menu
+    // if file is valid, pass it to the packs folder
+    fs.copyFile(file.path, path.join(__dirname, "/packs/", file.name), (err) => {
+        if (err) throw err;
+        console.log('File was copied to destination');
+    });
 }
 
 init();
