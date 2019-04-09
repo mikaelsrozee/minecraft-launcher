@@ -71,6 +71,10 @@ function isUploadedFileValid(file) {
 function setIndicatorState(state) {
     let indicator = document.querySelector("#valid-icon");
 
+    if (indicator === null) {
+        return;
+    }
+
     if (state === "hidden") {
         indicator.textContent = " ";
     } else if (state === "valid") {
